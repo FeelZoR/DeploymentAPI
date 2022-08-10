@@ -84,7 +84,7 @@ router.post('/', async (ctx) => {
 
   // Git fetch
   await (await Deno.run({
-    cmd: ['git', 'fetch'],
+    cmd: ['git', 'pull'],
     cwd: deploymentDir,
   })).status();
 
