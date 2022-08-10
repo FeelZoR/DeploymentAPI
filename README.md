@@ -54,3 +54,9 @@ Deno allows us to limit the rights of the application. This command tries to min
 ```bash
 deno run --allow-read='.env','.env.defaults','/my/deployment/path/' --allow-write='/my/deployment/path/' --allow-env='PORT','SECRET_ACCESS_KEY','DEPLOYMENT_ROOT_FOLDER' --allow-net='localhost' --allow-run='git','docker' src/main.ts
 ```
+
+## Limitations
+
+- When specifying an existing folder, its contents ARE NOT overridden. The `git clone` command fails silently.
+- Only one secret key is used for ALL deploying projects.
+- Deployment only starts docker instances. It won't configure your Nginx, Apache, etc.
